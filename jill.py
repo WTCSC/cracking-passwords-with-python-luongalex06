@@ -11,6 +11,7 @@ dictionary = args.dictionary_file
 
 hashes = []
 names = []
+output = []
 # Opens up the password file and reads each line
 with open(passwords) as f:
     encrypt = f.readlines()
@@ -34,4 +35,7 @@ for index, line in enumerate(encrypt):
     # If the password in the wordlist.txt matches the hash in the passwords.txt file...
     if str(sha256_hash.hexdigest()) in hashes:
         # Prints the outcome in "names:password"
-        print(f"{names[hashes.index(str(sha256_hash.hexdigest()))]}:{encrypt[index].rstrip("\n")}")
+        output.append([hashes.index(str(sha256_hash.hexdigest())), f"{names[hashes.index(str(sha256_hash.hexdigest()))]}:{encrypt[index].rstrip("\n")}"])
+output.sort()
+for line in output:
+    print(line[1])
