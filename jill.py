@@ -16,7 +16,7 @@ output = []
 with open(passwords) as f:
     encrypt = f.readlines()
 
-# For every line in the file, it splits the lines into names and hashes and saves them into a list
+# For every line in the file, it splits the lines into names and hashes and saves them into a list.
 for line in encrypt:
     hash = line.split(':')[1].rstrip("\n")
     name = line.split(':')[0]
