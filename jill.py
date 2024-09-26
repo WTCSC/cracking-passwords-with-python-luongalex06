@@ -37,5 +37,6 @@ for index, line in enumerate(encrypt):
         # Prints the outcome in "names:password"
         output.append([hashes.index(str(sha256_hash.hexdigest())), f"{names[hashes.index(str(sha256_hash.hexdigest()))]}:{encrypt[index].rstrip("\n")}"])
 output.sort()
+
 for line in output:
     print(line[1])
